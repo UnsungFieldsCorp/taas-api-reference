@@ -12337,13 +12337,6 @@ curl "{{ BACKEND_HOST_URL }}/v1/hardware" \
   -H "Authorization: Bearer ${UFCLOUD_API_KEY}"
 ```
 
-- cURL (filtered by model)
-
-```curl
-curl "{{ BACKEND_HOST_URL }}/v1/hardware?model=org_507f1f77bcf86cd799439011/openai-gpt-oss-120b-a1b2c3d4" \
-  -H "Authorization: Bearer ${UFCLOUD_API_KEY}"
-```
-
 - Python SDK
 
 ```python
@@ -12585,7 +12578,7 @@ console.log(hardware);
 }
 ```
 
-## Dedicated Endpoints
+## Endpoints
 
 ### Create dedicated endpoint
 
@@ -12959,13 +12952,6 @@ curl "{{ BACKEND_HOST_URL }}/v1/endpoints?page=1&limit=10" \
   -H "Authorization: Bearer ${UFCLOUD_API_KEY}"
 ```
 
-- cURL (filtered by state)
-
-```curl
-curl "{{ BACKEND_HOST_URL }}/v1/endpoints?state=ACTIVE" \
-  -H "Authorization: Bearer ${UFCLOUD_API_KEY}"
-```
-
 - Python SDK
 
 ```python
@@ -13209,19 +13195,7 @@ The response is an updated `DedicatedEndpointResponse` object as described in th
 
 #### Example Requests
 
-- cURL (update display name)
-
-```curl
-curl "{{ BACKEND_HOST_URL }}/v1/endpoints/dep-a1b2c3d4e5f" \
-  -X PATCH \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer ${UFCLOUD_API_KEY}" \
-  -d '{
-        "display_name": "Production GPT-OSS"
-      }'
-```
-
-- cURL (stop an endpoint)
+- cURL
 
 ```curl
 curl "{{ BACKEND_HOST_URL }}/v1/endpoints/dep-a1b2c3d4e5f" \
@@ -13230,18 +13204,6 @@ curl "{{ BACKEND_HOST_URL }}/v1/endpoints/dep-a1b2c3d4e5f" \
   -H "Authorization: Bearer ${UFCLOUD_API_KEY}" \
   -d '{
         "state": "STOPPED"
-      }'
-```
-
-- cURL (restart a stopped endpoint)
-
-```curl
-curl "{{ BACKEND_HOST_URL }}/v1/endpoints/dep-a1b2c3d4e5f" \
-  -X PATCH \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer ${UFCLOUD_API_KEY}" \
-  -d '{
-        "state": "STARTED"
       }'
 ```
 
